@@ -184,7 +184,7 @@ const projects: Omit<ProjectCardProps, 'index'>[] = [
       'Deployed on Vercel · Render · MongoDB Atlas',
     ],
     githubUrl: 'https://github.com/Rohitkumar968/TravelNest-AI',
-    demoUrl: null,
+    demoUrl: 'https://travel-nest-ai-five.vercel.app/',
     githubOwner: 'Rohitkumar968',
     githubRepo: 'TravelNest-AI',
   },
