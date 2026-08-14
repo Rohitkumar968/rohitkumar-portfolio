@@ -1,8 +1,8 @@
-import { ExternalLink, Github, Plane, Cloud, Star, GitFork, Clock, Code2, Loader2 } from 'lucide-react';
-import { motion } from 'framer-motion';
-import { Button } from './ui/button';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import { useGitHubRepo } from '@/hooks/useGitHubRepo';
+import { motion } from 'framer-motion';
+import { Button } from './ui/button';
+import {ExternalLink,Github,Plane,Cloud,CircleDollarSign,Star,GitFork,Clock,Code2,Loader2,} from 'lucide-react';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 32 },
@@ -187,6 +187,37 @@ const projects: Omit<ProjectCardProps, 'index'>[] = [
     demoUrl: 'https://travel-nest-ai-five.vercel.app/',
     githubOwner: 'Rohitkumar968',
     githubRepo: 'TravelNest-AI',
+  },
+    {
+    title: 'AI Finance Manager',
+    subtitle: 'Featured · MERN Stack + AI',
+    description:
+      'AI-powered personal finance management platform built with the MERN stack. Manage transactions, budgets, savings goals and financial insights with an intelligent AI financial assistant and a secure role-based admin panel.',
+    tech: [
+      'React',
+      'Vite',
+      'Tailwind CSS',
+      'Redux Toolkit',
+      'Node.js',
+      'Express.js',
+      'MongoDB',
+      'Mongoose',
+      'JWT',
+      'AI',
+      'Recharts',
+    ],
+    icon: CircleDollarSign,
+    color: 'from-violet-500 to-purple-500',
+    highlights: [
+      'AI Financial Advisor, Spending Analysis & Smart Recommendations',
+      'Transactions, Budgets, Savings Goals & Analytics',
+      'Admin Panel with RBAC, User Management & AI Analytics',
+      'Deployed on Vercel · Render · MongoDB Atlas',
+    ],
+    githubUrl: 'https://github.com/Rohitkumar968/ai-finance-manager.git',
+    demoUrl: 'https://rohit-ai-finance-manager.vercel.app',
+    githubOwner: 'Rohitkumar968',
+    githubRepo: 'ai-finance-manager',
   },
   {
     title: 'Weather App',
