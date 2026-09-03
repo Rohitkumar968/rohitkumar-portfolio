@@ -1,0 +1,30 @@
+name: Update README Date
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  update-date:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Update Last Updated date
+        run: |
+          DATE=$(date +"%b %Y")
+          sed -i -E "s/\*\*[A-Z][a-z]{2} [0-9]{4}\*\*/**$DATE**/" README.md
+
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add README.md
+          git diff --cached --quiet || git commit -m "chore: update README date"
+          git push
