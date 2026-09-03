@@ -15,7 +15,7 @@ const skillCategories = [
   {
     title: 'Database',
     icon: Database,
-    skills: ['MongoDB Atlas', 'CRUD Operations'],
+    skills: ['MongoDB Atlas', 'CRUD Operations','MySQL'],
   },
   {
     title: 'Authentication',

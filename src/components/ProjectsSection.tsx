@@ -2,7 +2,8 @@ import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import { useGitHubRepo } from '@/hooks/useGitHubRepo';
 import { motion } from 'framer-motion';
 import { Button } from './ui/button';
-import {ExternalLink,Github,Plane,Cloud,CircleDollarSign,Star,GitFork,Clock,Code2,Loader2,} from 'lucide-react';
+import {ExternalLink,Github,Plane,Cloud,CircleDollarSign,Star,GitFork,Clock,Code2,Loader2,Code} from 'lucide-react';
+
 
 const fadeUp = {
   hidden: { opacity: 0, y: 32 },
@@ -235,6 +236,30 @@ const projects: Omit<ProjectCardProps, 'index'>[] = [
     githubUrl: 'https://github.com/Rohitkumar968',
     demoUrl: 'https://weather-app-roh.netlify.app/',
   },
+  {
+  title: 'Personal Portfolio',
+  subtitle: 'Featured · React + TypeScript',
+  description:
+    'Modern and responsive personal portfolio website showcasing my skills, projects, career objectives, and professional profile with a clean and interactive user experience.',
+  tech: [
+    'React',
+    'TypeScript',
+    'Vite',
+    'Tailwind CSS',
+    'JavaScript'
+  ],
+  icon: Code,
+  color: 'from-purple-500 to-pink-500',
+  highlights: [
+    'Responsive design for desktop, tablet, and mobile',
+    'Modern UI with smooth animations and interactions',
+    'Dedicated sections for projects, skills, career objective, and contact',
+  ],
+  githubUrl: 'https://github.com/Rohitkumar968/rohitkumar-portfolio',
+  demoUrl: 'https://rohitkumar0-portfolio.netlify.app/',
+  githubOwner: 'Rohitkumar968',
+  githubRepo: 'rohitkumar-portfolio',
+},
 ];
 
 export function ProjectsSection() {

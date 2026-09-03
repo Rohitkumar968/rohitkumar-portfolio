@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Download, ExternalLink, MapPin, Github, Linkedin } from 'lucide-react';
 import { Button } from './ui/button';
 
-const roles = ['Full Stack Developer', 'MERN Stack Developer', 'React.js Developer', 'Node.js Developer', 'Final Year CSE Student'];
+const roles = ['Full Stack Developer', 'MERN Stack Developer', 'React.js Developer', 'Node.js Developer'];
 const stack = ['React.js', 'TypeScript', 'Node.js', 'Express.js', 'MongoDB', 'Tailwind CSS', 'Groq AI', 'JWT'];
 
 export function HeroSection() {
@@ -68,7 +68,7 @@ export function HeroSection() {
           </div>
 
           <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-10 animate-fade-in-up delay-200">
-            B.Tech Computer Science student with a strong foundation in Full Stack Web Development
+            B.Tech Computer Science Graduate with a strong foundation in Full Stack Web Development
             using the MERN Stack. I build scalable, responsive, and user-friendly web applications
             using React.js, Node.js, Express.js, MongoDB, TypeScript, and Tailwind CSS.
           </p>
@@ -121,11 +121,11 @@ export function HeroSection() {
             <div className="grid sm:grid-cols-3 gap-4">
               <div>
                 <p className="text-xs text-muted-foreground mb-1">Primary Stack</p>
-                <p className="font-medium">MERN Stack</p>
+                <p className="font-medium">MERN Stack Developer</p>
               </div>
               <div>
                 <p className="text-xs text-muted-foreground mb-1">Seeking</p>
-                <p className="font-medium">Full Stack / Frontend Dev</p>
+                <p className="font-medium">Full-Time Full Stack Developer Opportunities</p>
               </div>
               <div>
                 <p className="text-xs text-muted-foreground mb-1">Education</p>

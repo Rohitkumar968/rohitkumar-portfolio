@@ -52,8 +52,8 @@ export function Footer() {
             <h3 className="text-xl font-bold text-gradient">Rohit Kumar</h3>
             <p className="text-sm text-primary font-medium">Full Stack Developer | MERN Stack Developer</p>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              B.Tech CSE student passionate about building modern, scalable, and responsive
-              web applications using the MERN Stack and AI tools.
+              B.Tech CSE Graduate & Full Stack Developer focused on building modern, scalable, and responsive
+               web applications with the MERN Stack and AI technologies.
             </p>
           </div>
 

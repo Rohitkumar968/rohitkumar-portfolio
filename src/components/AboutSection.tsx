@@ -51,19 +51,20 @@ export function AboutSection() {
             <div className="glass-card">
               <h3 className="text-xl font-semibold mb-4 text-gradient">Professional Summary</h3>
               <p className="text-muted-foreground leading-relaxed">
-                I am a B.Tech Computer Science student with a strong foundation in Full Stack Web
-                Development using the MERN Stack. I enjoy building scalable, responsive, and
-                user-friendly web applications using React.js, Node.js, Express.js, MongoDB,
-                JavaScript, TypeScript, Tailwind CSS, and modern development tools.
+                B.Tech Computer Science graduate and Full Stack Web Developer with a strong foundation in MERN Stack development. 
+                Skilled in building scalable, responsive, and user-friendly web applications using React.js, Node.js, Express.js,
+                 MongoDB, JavaScript, TypeScript, and Tailwind CSS. Experienced in developing modern web solutions with a focus on 
+                 clean code, performance, and user experience. Seeking an entry-level Full Stack Developer opportunity to apply 
+                 my technical skills and contribute to real-world projects.
               </p>
             </div>
 
             <div className="glass-card">
               <h3 className="text-xl font-semibold mb-4 text-gradient">Career Objective</h3>
               <p className="text-muted-foreground leading-relaxed">
-                I am passionate about learning new technologies and looking for opportunities as a
-                Full Stack Developer, Frontend Developer, or Software Engineer where I can apply my
-                technical skills and contribute to building high-quality software solutions.
+                Seeking opportunities as a Full Stack Developer, Frontend Developer, or Software Engineer
+                 where I can apply my technical skills, solve real-world problems, continuously learn, and contribute
+                  to building scalable and high-quality software solutions.
               </p>
             </div>
           </div>
