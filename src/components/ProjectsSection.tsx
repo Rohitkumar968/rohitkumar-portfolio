@@ -233,8 +233,10 @@ const projects: Omit<ProjectCardProps, 'index'>[] = [
       'City Search with Error Handling',
       'Optimized React Components',
     ],
-    githubUrl: 'https://github.com/Rohitkumar968',
+    githubUrl: 'https://github.com/Rohitkumar968/My-Weather-App.git',
     demoUrl: 'https://weather-app-roh.netlify.app/',
+    githubOwner: 'Rohitkumar968',
+    githubRepo: 'My-Weather-App',
   },
   {
   title: 'Personal Portfolio',
