@@ -79,11 +79,11 @@ export function HeroSection() {
               View Projects
             </Button>
             <Button variant="heroOutline" size="xl" className="hero-cta" asChild>
-              <a href="/rohit%20resume.pdf" download="Rohit_Kumar_Resume.pdf">
-                <Download className="w-5 h-5" />
-                Download Resume
-              </a>
-            </Button>
+            <a href="/Resume%20Rohit%20Kumar.pdf" download="Resume Rohit Kumar.pdf">
+            <Download className="w-5 h-5" />
+               Download Resume
+             </a>
+             </Button>
           </div>
 
           <div className="flex items-center justify-center gap-4 mb-8 animate-fade-in-up delay-400">
