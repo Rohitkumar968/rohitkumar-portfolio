@@ -1,6 +1,7 @@
+import { useState } from 'react';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import { useGitHubRepo } from '@/hooks/useGitHubRepo';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from './ui/button';
 import {
   ExternalLink,
@@ -15,6 +16,8 @@ import {
   Loader2,
   Code,
   Briefcase,
+  ChevronLeft,
+  ChevronRight,
 } from 'lucide-react';
 
 const fadeUp = {
@@ -28,7 +31,7 @@ const fadeUp = {
     transition: {
       duration: 0.55,
       ease: [0.16, 1, 0.3, 1],
-      delay: i * 0.12,
+      delay: i * 0.08,
     },
   }),
 };
@@ -123,11 +126,7 @@ function ProjectCard({
       custom={index}
       variants={fadeUp}
       initial="hidden"
-      whileInView="visible"
-      viewport={{
-        once: true,
-        margin: '-60px',
-      }}
+      animate="visible"
       whileHover={{
         y: -6,
         transition: {
@@ -306,7 +305,7 @@ const projects: Omit<ProjectCardProps, 'index'>[] = [
       'Recharts',
     ],
 
-    icon: CircleDollarSign,
+    icon: CircleDollarDollarSign,
     color: 'from-violet-500 to-purple-500',
 
     highlights: [
@@ -439,6 +438,34 @@ const projects: Omit<ProjectCardProps, 'index'>[] = [
 export function ProjectsSection() {
   const { ref } = useScrollAnimation();
 
+  const [currentPage, setCurrentPage] = useState(0);
+
+  const projectsPerPage = 4;
+
+  const totalPages = Math.ceil(
+    projects.length / projectsPerPage
+  );
+
+  const startIndex =
+    currentPage * projectsPerPage;
+
+  const visibleProjects = projects.slice(
+    startIndex,
+    startIndex + projectsPerPage
+  );
+
+  const nextPage = () => {
+    if (currentPage < totalPages - 1) {
+      setCurrentPage((prev) => prev + 1);
+    }
+  };
+
+  const previousPage = () => {
+    if (currentPage > 0) {
+      setCurrentPage((prev) => prev - 1);
+    }
+  };
+
   return (
     <section
       id="projects"
@@ -451,7 +478,7 @@ export function ProjectsSection() {
         ref={ref}
       >
         {/* Section Heading */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-12">
           <motion.h2
             initial={{
               opacity: 0,
@@ -499,15 +526,113 @@ export function ProjectsSection() {
         </div>
 
         {/* Projects Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-          {projects.map((project, index) => (
-            <ProjectCard
-              key={project.title}
-              {...project}
-              index={index}
-            />
-          ))}
+        <div className="max-w-6xl mx-auto">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={currentPage}
+              initial={{
+                opacity: 0,
+                x: 30,
+              }}
+              animate={{
+                opacity: 1,
+                x: 0,
+              }}
+              exit={{
+                opacity: 0,
+                x: -30,
+              }}
+              transition={{
+                duration: 0.35,
+                ease: 'easeInOut',
+              }}
+              className="grid grid-cols-1 md:grid-cols-2 gap-6"
+            >
+              {visibleProjects.map(
+                (project, index) => (
+                  <ProjectCard
+                    key={project.title}
+                    {...project}
+                    index={index}
+                  />
+                )
+              )}
+            </motion.div>
+          </AnimatePresence>
         </div>
+
+        {/* Navigation */}
+        {totalPages > 1 && (
+          <div className="flex items-center justify-center gap-4 mt-10">
+            <Button
+              variant="outline"
+              size="icon"
+              onClick={previousPage}
+              disabled={currentPage === 0}
+              aria-label="Previous projects"
+              className="rounded-full w-11 h-11 transition-all duration-300 hover:scale-105"
+            >
+              <ChevronLeft className="w-5 h-5" />
+            </Button>
+
+            {/* Page Indicators */}
+            <div className="flex items-center gap-2">
+              {Array.from({
+                length: totalPages,
+              }).map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() =>
+                    setCurrentPage(index)
+                  }
+                  aria-label={`Go to project page ${
+                    index + 1
+                  }`}
+                  className={`h-2.5 rounded-full transition-all duration-300 ${
+                    currentPage === index
+                      ? 'w-8 bg-primary'
+                      : 'w-2.5 bg-muted-foreground/30 hover:bg-muted-foreground/50'
+                  }`}
+                />
+              ))}
+            </div>
+
+            <Button
+              variant="outline"
+              size="icon"
+              onClick={nextPage}
+              disabled={
+                currentPage === totalPages - 1
+              }
+              aria-label="Next projects"
+              className="rounded-full w-11 h-11 transition-all duration-300 hover:scale-105"
+            >
+              <ChevronRight className="w-5 h-5" />
+            </Button>
+          </div>
+        )}
+
+        {/* Page Counter */}
+        {totalPages > 1 && (
+          <p className="text-center text-sm text-muted-foreground mt-4">
+            Showing{' '}
+            <span className="text-foreground font-medium">
+              {startIndex + 1}
+            </span>
+            {' – '}
+            <span className="text-foreground font-medium">
+              {Math.min(
+                startIndex + projectsPerPage,
+                projects.length
+              )}
+            </span>
+            {' of '}
+            <span className="text-foreground font-medium">
+              {projects.length}
+            </span>{' '}
+            projects
+          </p>
+        )}
 
         {/* GitHub Button */}
         <motion.div
@@ -544,6 +669,6 @@ export function ProjectsSection() {
           </Button>
         </motion.div>
       </div>
-    </section> 
-    );
-};
+    </section>
+  );
+}
