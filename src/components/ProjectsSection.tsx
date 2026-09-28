@@ -26,12 +26,13 @@ const fadeUp = {
     opacity: 0,
     y: 32,
   },
+
   visible: (i: number) => ({
     opacity: 1,
     y: 0,
     transition: {
       duration: 0.55,
-      ease: [0.16, 1, 0.3, 1],
+      ease: 'easeOut',
       delay: i * 0.08,
     },
   }),
@@ -196,6 +197,7 @@ function ProjectCard({
       {/* Buttons */}
       <div className="flex gap-3 pt-4 border-t border-border mt-4">
         <Button
+          type="button"
           variant="ghost"
           size="sm"
           className="flex-1 hover:bg-primary/10 hover:text-primary transition-colors"
@@ -213,6 +215,7 @@ function ProjectCard({
 
         {demoUrl ? (
           <Button
+            type="button"
             variant="ghost"
             size="sm"
             className="flex-1 hover:bg-accent/10 hover:text-accent transition-colors"
@@ -229,6 +232,7 @@ function ProjectCard({
           </Button>
         ) : (
           <Button
+            type="button"
             variant="ghost"
             size="sm"
             className="flex-1 opacity-50 cursor-not-allowed"
@@ -400,39 +404,40 @@ const projects: Omit<ProjectCardProps, 'index'>[] = [
     githubOwner: 'Rohitkumar968',
     githubRepo: 'My-Weather-App',
   },
- {
+
+  {
     title: 'Calculator App',
     subtitle: 'Frontend · HTML + CSS + JavaScript',
 
     description:
-    'Responsive calculator application built with HTML, CSS, and JavaScript for performing basic arithmetic operations with a clean and user-friendly interface.',
+      'Responsive calculator application built with HTML, CSS, and JavaScript for performing basic arithmetic operations with a clean and user-friendly interface.',
 
     tech: [
-    'HTML5',
-    'CSS3',
-    'JavaScript',
-    ],
-
-    highlights: [
-    'Implemented addition, subtraction, multiplication, and division',
-    'Built a clean and responsive calculator interface',
-    'Added percentage, decimal, clear, and backspace operations',
-    'Responsive design for desktop and mobile devices',
+      'HTML5',
+      'CSS3',
+      'JavaScript',
     ],
 
     icon: Calculator,
-
     color: 'from-cyan-500 to-blue-500',
 
+    highlights: [
+      'Implemented addition, subtraction, multiplication, and division',
+      'Built a clean and responsive calculator interface',
+      'Added percentage, decimal, clear, and backspace operations',
+      'Responsive design for desktop and mobile devices',
+    ],
+
     githubUrl:
-    'https://github.com/Rohitkumar968/my-calculator.git',
+      'https://github.com/Rohitkumar968/my-calculator.git',
 
     demoUrl:
-    'https://rohit-calculato.netlify.app/',
+      'https://rohit-calculato.netlify.app/',
 
     githubOwner: 'Rohitkumar968',
     githubRepo: 'my-calculator',
-    },
+  },
+
   {
     title: 'Personal Portfolio',
     subtitle: 'Featured · React + TypeScript',
@@ -487,15 +492,34 @@ export function ProjectsSection() {
     startIndex + projectsPerPage
   );
 
+  /*
+   * Keep the current scroll position when changing pages.
+   * This prevents the browser from jumping down/up after
+   * clicking the carousel buttons.
+   */
+  const changePage = (newPage: number) => {
+    const scrollPosition = window.scrollY;
+
+    setCurrentPage(newPage);
+
+    requestAnimationFrame(() => {
+      window.scrollTo({
+        top: scrollPosition,
+        left: 0,
+        behavior: 'auto',
+      });
+    });
+  };
+
   const nextPage = () => {
     if (currentPage < totalPages - 1) {
-      setCurrentPage((prev) => prev + 1);
+      changePage(currentPage + 1);
     }
   };
 
   const previousPage = () => {
     if (currentPage > 0) {
-      setCurrentPage((prev) => prev - 1);
+      changePage(currentPage - 1);
     }
   };
 
@@ -560,7 +584,10 @@ export function ProjectsSection() {
 
         {/* Projects Grid */}
         <div className="max-w-6xl mx-auto">
-          <AnimatePresence mode="wait">
+          <AnimatePresence
+            mode="wait"
+            initial={false}
+          >
             <motion.div
               key={currentPage}
               initial={{
@@ -597,9 +624,14 @@ export function ProjectsSection() {
         {/* Navigation */}
         {totalPages > 1 && (
           <div className="flex items-center justify-center gap-4 mt-10">
+            {/* Previous */}
             <Button
+              type="button"
               variant="outline"
               size="icon"
+              onMouseDown={(event) => {
+                event.preventDefault();
+              }}
               onClick={previousPage}
               disabled={currentPage === 0}
               aria-label="Previous projects"
@@ -614,13 +646,22 @@ export function ProjectsSection() {
                 length: totalPages,
               }).map((_, index) => (
                 <button
+                  type="button"
                   key={index}
+                  onMouseDown={(event) => {
+                    event.preventDefault();
+                  }}
                   onClick={() =>
-                    setCurrentPage(index)
+                    changePage(index)
                   }
                   aria-label={`Go to project page ${
                     index + 1
                   }`}
+                  aria-current={
+                    currentPage === index
+                      ? 'page'
+                      : undefined
+                  }
                   className={`h-2.5 rounded-full transition-all duration-300 ${
                     currentPage === index
                       ? 'w-8 bg-primary'
@@ -630,9 +671,14 @@ export function ProjectsSection() {
               ))}
             </div>
 
+            {/* Next */}
             <Button
+              type="button"
               variant="outline"
               size="icon"
+              onMouseDown={(event) => {
+                event.preventDefault();
+              }}
               onClick={nextPage}
               disabled={
                 currentPage === totalPages - 1
@@ -687,6 +733,7 @@ export function ProjectsSection() {
           className="text-center mt-12"
         >
           <Button
+            type="button"
             variant="heroOutline"
             size="lg"
             asChild
