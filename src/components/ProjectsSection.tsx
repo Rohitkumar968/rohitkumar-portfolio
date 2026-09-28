@@ -9,6 +9,7 @@ import {
   Plane,
   Cloud,
   CircleDollarSign,
+  Calculator,
   Star,
   GitFork,
   Clock,
@@ -399,7 +400,39 @@ const projects: Omit<ProjectCardProps, 'index'>[] = [
     githubOwner: 'Rohitkumar968',
     githubRepo: 'My-Weather-App',
   },
+ {
+    title: 'Calculator App',
+    subtitle: 'Frontend · HTML + CSS + JavaScript',
 
+    description:
+    'Responsive calculator application built with HTML, CSS, and JavaScript for performing basic arithmetic operations with a clean and user-friendly interface.',
+
+    tech: [
+    'HTML5',
+    'CSS3',
+    'JavaScript',
+    ],
+
+    highlights: [
+    'Implemented addition, subtraction, multiplication, and division',
+    'Built a clean and responsive calculator interface',
+    'Added percentage, decimal, clear, and backspace operations',
+    'Responsive design for desktop and mobile devices',
+    ],
+
+    icon: Calculator,
+
+    color: 'from-cyan-500 to-blue-500',
+
+    githubUrl:
+    'https://github.com/Rohitkumar968/my-calculator.git',
+
+    demoUrl:
+    'https://rohit-calculato.netlify.app/',
+
+    githubOwner: 'Rohitkumar968',
+    githubRepo: 'my-calculator',
+    },
   {
     title: 'Personal Portfolio',
     subtitle: 'Featured · React + TypeScript',
