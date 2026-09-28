@@ -305,7 +305,7 @@ const projects: Omit<ProjectCardProps, 'index'>[] = [
       'Recharts',
     ],
 
-    icon: CircleDollarDollarSign,
+    icon: CircleDollarSign,
     color: 'from-violet-500 to-purple-500',
 
     highlights: [
