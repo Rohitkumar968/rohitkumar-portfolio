@@ -26,7 +26,6 @@ const fadeUp = {
     opacity: 0,
     y: 32,
   },
-
   visible: (i: number) => ({
     opacity: 1,
     y: 0,
@@ -137,7 +136,6 @@ function ProjectCard({
       }}
       className="glass-card group overflow-hidden flex flex-col h-full"
     >
-      {/* Header */}
       <div className="flex items-start gap-4 mb-4">
         <div
           className={`w-12 h-12 rounded-lg bg-gradient-to-br ${color} flex items-center justify-center flex-shrink-0 shadow-lg`}
@@ -156,12 +154,10 @@ function ProjectCard({
         </div>
       </div>
 
-      {/* Description */}
       <p className="text-muted-foreground text-sm mb-4 leading-relaxed flex-1">
         {description}
       </p>
 
-      {/* Tech Stack */}
       <div className="flex flex-wrap gap-1.5 mb-4">
         {tech.map((technology) => (
           <span
@@ -173,7 +169,6 @@ function ProjectCard({
         ))}
       </div>
 
-      {/* Highlights */}
       <div className="grid gap-1.5 mb-4">
         {highlights.map((highlight) => (
           <div
@@ -186,7 +181,6 @@ function ProjectCard({
         ))}
       </div>
 
-      {/* GitHub Stats */}
       {githubOwner && githubRepo && (
         <GitHubStats
           owner={githubOwner}
@@ -194,10 +188,8 @@ function ProjectCard({
         />
       )}
 
-      {/* Buttons */}
       <div className="flex gap-3 pt-4 border-t border-border mt-4">
         <Button
-          type="button"
           variant="ghost"
           size="sm"
           className="flex-1 hover:bg-primary/10 hover:text-primary transition-colors"
@@ -215,7 +207,6 @@ function ProjectCard({
 
         {demoUrl ? (
           <Button
-            type="button"
             variant="ghost"
             size="sm"
             className="flex-1 hover:bg-accent/10 hover:text-accent transition-colors"
@@ -232,7 +223,6 @@ function ProjectCard({
           </Button>
         ) : (
           <Button
-            type="button"
             variant="ghost"
             size="sm"
             className="flex-1 opacity-50 cursor-not-allowed"
@@ -251,10 +241,8 @@ const projects: Omit<ProjectCardProps, 'index'>[] = [
   {
     title: 'TravelNest AI',
     subtitle: 'Featured · MERN Stack + AI',
-
     description:
       'AI-powered travel planning platform with personalized itinerary generation using Groq AI (Llama 3). Features JWT + bcrypt authentication, responsive glassmorphism UI, and a full MERN Stack architecture deployed on Vercel, Render, and MongoDB Atlas.',
-
     tech: [
       'React',
       'Vite',
@@ -269,22 +257,17 @@ const projects: Omit<ProjectCardProps, 'index'>[] = [
       'Axios',
       'Groq AI',
     ],
-
     icon: Plane,
     color: 'from-blue-500 to-cyan-500',
-
     highlights: [
       'AI Itinerary Generation via Groq AI (Llama 3)',
       'JWT + Bcrypt Authentication & Protected Routes',
       'Deployed on Vercel · Render · MongoDB Atlas',
     ],
-
     githubUrl:
       'https://github.com/Rohitkumar968/TravelNest-AI',
-
     demoUrl:
       'https://travel-nest-ai-five.vercel.app/',
-
     githubOwner: 'Rohitkumar968',
     githubRepo: 'TravelNest-AI',
   },
@@ -292,10 +275,8 @@ const projects: Omit<ProjectCardProps, 'index'>[] = [
   {
     title: 'AI Finance Manager',
     subtitle: 'Featured · MERN Stack + AI',
-
     description:
       'AI-powered personal finance management platform built with the MERN stack. Manage transactions, budgets, savings goals, and financial insights with an intelligent AI financial assistant and a secure role-based admin panel.',
-
     tech: [
       'React',
       'Vite',
@@ -309,23 +290,18 @@ const projects: Omit<ProjectCardProps, 'index'>[] = [
       'AI',
       'Recharts',
     ],
-
     icon: CircleDollarSign,
     color: 'from-violet-500 to-purple-500',
-
     highlights: [
       'AI Financial Advisor, Spending Analysis & Smart Recommendations',
       'Transactions, Budgets, Savings Goals & Analytics',
       'Admin Panel with RBAC, User Management & AI Analytics',
       'Deployed on Vercel · Render · MongoDB Atlas',
     ],
-
     githubUrl:
       'https://github.com/Rohitkumar968/ai-finance-manager.git',
-
     demoUrl:
       'https://rohit-ai-finance-manager.vercel.app',
-
     githubOwner: 'Rohitkumar968',
     githubRepo: 'ai-finance-manager',
   },
@@ -333,10 +309,8 @@ const projects: Omit<ProjectCardProps, 'index'>[] = [
   {
     title: 'CareerBridge Job Portal',
     subtitle: 'Featured · MERN Stack',
-
     description:
       'Full-stack job portal connecting job seekers and recruiters through a modern and responsive platform. Includes secure authentication, job discovery, saved jobs, job applications, recruiter workflows, dashboards, and role-based access control.',
-
     tech: [
       'React',
       'JavaScript',
@@ -349,23 +323,18 @@ const projects: Omit<ProjectCardProps, 'index'>[] = [
       'REST APIs',
       'Axios',
     ],
-
     icon: Briefcase,
     color: 'from-orange-500 to-red-500',
-
     highlights: [
       'Job Search, Filtering, Saved Jobs & Applications',
       'JWT Authentication with Role-Based Access Control',
       'Recruiter & Job Seeker Dashboards',
       'RESTful APIs with Node.js, Express.js & MongoDB',
     ],
-
     githubUrl:
       'https://github.com/Rohitkumar968/careerbridge.git',
-
     demoUrl:
       'https://careerbridgejob-portal.netlify.app/',
-
     githubOwner: 'Rohitkumar968',
     githubRepo: 'careerbridge',
   },
@@ -373,10 +342,8 @@ const projects: Omit<ProjectCardProps, 'index'>[] = [
   {
     title: 'Weather App',
     subtitle: 'Frontend · React + Weather API',
-
     description:
       'Real-time weather forecast application with city search, responsive UI, error handling, and loading states. Built with React and the Weather API to provide live weather information.',
-
     tech: [
       'React',
       'JavaScript',
@@ -385,22 +352,17 @@ const projects: Omit<ProjectCardProps, 'index'>[] = [
       'Axios',
       'Weather API',
     ],
-
     icon: Cloud,
     color: 'from-emerald-500 to-teal-500',
-
     highlights: [
       'Real-Time Weather Forecast',
       'City Search with Error Handling',
       'Optimized React Components',
     ],
-
     githubUrl:
       'https://github.com/Rohitkumar968/My-Weather-App.git',
-
     demoUrl:
       'https://weather-app-roh.netlify.app/',
-
     githubOwner: 'Rohitkumar968',
     githubRepo: 'My-Weather-App',
   },
@@ -408,32 +370,25 @@ const projects: Omit<ProjectCardProps, 'index'>[] = [
   {
     title: 'Calculator App',
     subtitle: 'Frontend · HTML + CSS + JavaScript',
-
     description:
       'Responsive calculator application built with HTML, CSS, and JavaScript for performing basic arithmetic operations with a clean and user-friendly interface.',
-
     tech: [
       'HTML5',
       'CSS3',
       'JavaScript',
     ],
-
-    icon: Calculator,
-    color: 'from-cyan-500 to-blue-500',
-
     highlights: [
       'Implemented addition, subtraction, multiplication, and division',
       'Built a clean and responsive calculator interface',
       'Added percentage, decimal, clear, and backspace operations',
       'Responsive design for desktop and mobile devices',
     ],
-
+    icon: Calculator,
+    color: 'from-cyan-500 to-blue-500',
     githubUrl:
       'https://github.com/Rohitkumar968/my-calculator.git',
-
     demoUrl:
       'https://rohit-calculato.netlify.app/',
-
     githubOwner: 'Rohitkumar968',
     githubRepo: 'my-calculator',
   },
@@ -441,10 +396,8 @@ const projects: Omit<ProjectCardProps, 'index'>[] = [
   {
     title: 'Personal Portfolio',
     subtitle: 'Featured · React + TypeScript',
-
     description:
       'Modern and responsive personal portfolio website showcasing technical skills, projects, career objectives, and professional profile with a clean and interactive user experience.',
-
     tech: [
       'React',
       'TypeScript',
@@ -452,22 +405,17 @@ const projects: Omit<ProjectCardProps, 'index'>[] = [
       'Tailwind CSS',
       'JavaScript',
     ],
-
     icon: Code,
     color: 'from-purple-500 to-pink-500',
-
     highlights: [
       'Responsive Design for Desktop, Tablet & Mobile',
       'Modern UI with Smooth Animations & Interactions',
       'Dedicated Sections for Projects, Skills, Career Objective & Contact',
     ],
-
     githubUrl:
       'https://github.com/Rohitkumar968/rohitkumar-portfolio',
-
     demoUrl:
       'https://rohitkumar0-portfolio.netlify.app/',
-
     githubOwner: 'Rohitkumar968',
     githubRepo: 'rohitkumar-portfolio',
   },
@@ -492,35 +440,24 @@ export function ProjectsSection() {
     startIndex + projectsPerPage
   );
 
-  /*
-   * Keep the current scroll position when changing pages.
-   * This prevents the browser from jumping down/up after
-   * clicking the carousel buttons.
-   */
   const changePage = (newPage: number) => {
-    const scrollPosition = window.scrollY;
+    if (
+      newPage < 0 ||
+      newPage >= totalPages ||
+      newPage === currentPage
+    ) {
+      return;
+    }
 
     setCurrentPage(newPage);
-
-    requestAnimationFrame(() => {
-      window.scrollTo({
-        top: scrollPosition,
-        left: 0,
-        behavior: 'auto',
-      });
-    });
   };
 
   const nextPage = () => {
-    if (currentPage < totalPages - 1) {
-      changePage(currentPage + 1);
-    }
+    changePage(currentPage + 1);
   };
 
   const previousPage = () => {
-    if (currentPage > 0) {
-      changePage(currentPage - 1);
-    }
+    changePage(currentPage - 1);
   };
 
   return (
@@ -534,7 +471,6 @@ export function ProjectsSection() {
         className="container mx-auto px-4 md:px-6 relative z-10"
         ref={ref}
       >
-        {/* Section Heading */}
         <div className="text-center mb-12">
           <motion.h2
             initial={{
@@ -582,8 +518,8 @@ export function ProjectsSection() {
           </motion.p>
         </div>
 
-        {/* Projects Grid */}
-        <div className="max-w-6xl mx-auto">
+        {/* Projects container with stable height */}
+        <div className="max-w-6xl mx-auto min-h-[2100px] md:min-h-[900px]">
           <AnimatePresence
             mode="wait"
             initial={false}
@@ -621,10 +557,9 @@ export function ProjectsSection() {
           </AnimatePresence>
         </div>
 
-        {/* Navigation */}
+        {/* Pagination controls */}
         {totalPages > 1 && (
           <div className="flex items-center justify-center gap-4 mt-10">
-            {/* Previous */}
             <Button
               type="button"
               variant="outline"
@@ -640,7 +575,6 @@ export function ProjectsSection() {
               <ChevronLeft className="w-5 h-5" />
             </Button>
 
-            {/* Page Indicators */}
             <div className="flex items-center gap-2">
               {Array.from({
                 length: totalPages,
@@ -671,7 +605,6 @@ export function ProjectsSection() {
               ))}
             </div>
 
-            {/* Next */}
             <Button
               type="button"
               variant="outline"
@@ -691,7 +624,7 @@ export function ProjectsSection() {
           </div>
         )}
 
-        {/* Page Counter */}
+        {/* Project count */}
         {totalPages > 1 && (
           <p className="text-center text-sm text-muted-foreground mt-4">
             Showing{' '}
@@ -713,7 +646,7 @@ export function ProjectsSection() {
           </p>
         )}
 
-        {/* GitHub Button */}
+        {/* GitHub button */}
         <motion.div
           initial={{
             opacity: 0,
