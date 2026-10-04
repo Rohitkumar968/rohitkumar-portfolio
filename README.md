@@ -191,4 +191,4 @@ Full Stack Developer | B.Tech CSE Graduate
 
 ## 📅 Last Updated
 
-**Sep 2026**
+**Oct 2026**
