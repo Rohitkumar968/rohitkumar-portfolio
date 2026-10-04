@@ -10,6 +10,7 @@ import {
   Cloud,
   CircleDollarSign,
   Calculator,
+  ShoppingBag,
   Star,
   GitFork,
   Clock,
@@ -238,6 +239,7 @@ function ProjectCard({
 }
 
 const projects: Omit<ProjectCardProps, 'index'>[] = [
+  // 1. TravelNest AI
   {
     title: 'TravelNest AI',
     subtitle: 'Featured · MERN Stack + AI',
@@ -272,6 +274,7 @@ const projects: Omit<ProjectCardProps, 'index'>[] = [
     githubRepo: 'TravelNest-AI',
   },
 
+  // 2. AI Finance Manager
   {
     title: 'AI Finance Manager',
     subtitle: 'Featured · MERN Stack + AI',
@@ -306,6 +309,7 @@ const projects: Omit<ProjectCardProps, 'index'>[] = [
     githubRepo: 'ai-finance-manager',
   },
 
+  // 3. CareerBridge
   {
     title: 'CareerBridge Job Portal',
     subtitle: 'Featured · MERN Stack',
@@ -339,6 +343,44 @@ const projects: Omit<ProjectCardProps, 'index'>[] = [
     githubRepo: 'careerbridge',
   },
 
+  // 4. ShopNest
+  
+  {
+    title: 'ShopNest E-Commerce',
+    subtitle: 'Featured · MERN Stack',
+    description:
+      'Modern full-stack e-commerce platform built with the MERN stack. Features secure JWT authentication, product browsing, search and filtering, cart, wishlist, checkout, order tracking, and a complete admin dashboard.',
+    tech: [
+      'React',
+      'Vite',
+      'Tailwind CSS',
+      'Redux Toolkit',
+      'Node.js',
+      'Express.js',
+      'MongoDB',
+      'Mongoose',
+      'JWT',
+      'Axios',
+    ],
+    icon: ShoppingBag,
+    color: 'from-orange-500 to-amber-500',
+    highlights: [
+      'JWT Authentication with Protected User & Admin Routes',
+      'Product Search, Filtering, Wishlist & Cart Management',
+      'Order Placement, Tracking & COD Checkout',
+      'Admin Dashboard with Product, Order & User Management',
+      'Deployed on Vercel · Render · MongoDB Atlas',
+    ],
+    githubUrl:
+      'https://github.com/Rohitkumar968/shopnest',
+    demoUrl:
+      'https://shopnest-ecommercerohit.vercel.app/',
+    githubOwner: 'Rohitkumar968',
+    githubRepo: 'shopnest',
+  },
+
+  // 5. Weather App
+  
   {
     title: 'Weather App',
     subtitle: 'Frontend · React + Weather API',
@@ -367,6 +409,7 @@ const projects: Omit<ProjectCardProps, 'index'>[] = [
     githubRepo: 'My-Weather-App',
   },
 
+  // 6. Calculator App
   {
     title: 'Calculator App',
     subtitle: 'Frontend · HTML + CSS + JavaScript',
@@ -393,6 +436,7 @@ const projects: Omit<ProjectCardProps, 'index'>[] = [
     githubRepo: 'my-calculator',
   },
 
+  // 7. Personal Portfolio
   {
     title: 'Personal Portfolio',
     subtitle: 'Featured · React + TypeScript',
@@ -449,7 +493,31 @@ export function ProjectsSection() {
       return;
     }
 
+    /*
+     * Prevent browser focus from causing the page
+     * to jump when changing project pages.
+     */
     setCurrentPage(newPage);
+
+    requestAnimationFrame(() => {
+      const projectsSection =
+        document.getElementById('projects');
+
+      if (projectsSection) {
+        const rect =
+          projectsSection.getBoundingClientRect();
+
+        if (
+          rect.top < 0 ||
+          rect.top > window.innerHeight
+        ) {
+          projectsSection.scrollIntoView({
+            behavior: 'auto',
+            block: 'start',
+          });
+        }
+      }
+    });
   };
 
   const nextPage = () => {
@@ -518,8 +586,12 @@ export function ProjectsSection() {
           </motion.p>
         </div>
 
-        {/* Projects container with stable height */}
-        <div className="max-w-6xl mx-auto min-h-[2100px] md:min-h-[900px]">
+        {/* 
+          Fixed/stable project area.
+          This prevents the section from jumping when
+          switching between project pages.
+        */}
+        <div className="max-w-6xl mx-auto min-h-[2050px] md:min-h-[900px]">
           <AnimatePresence
             mode="wait"
             initial={false}
